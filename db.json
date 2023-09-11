@@ -1,0 +1,10 @@
+{
+  "users": [
+    { "id": 1, "name": "Utilisateur 1" },
+    { "id": 2, "name": "Utilisateur 2" }
+  ],
+  "books": [
+    { "id": 1, "title": "Livre 1" },
+    { "id": 2, "title": "Livre 2" }
+  ]
+}
