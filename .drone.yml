@@ -1,0 +1,23 @@
+kind: pipeline
+type: docker
+name: release
+steps:
+- name: build and push
+  image: plugins/gcr
+  settings:
+    dockerfile: Dockerfile
+    registry: gcr.io/infra-342714
+    repo: api-test
+    tags:
+      - latest
+    json_key:
+      from_secret: google_credentials
+trigger:
+  branch:
+    include:
+    - master
+  event:
+    include:
+    - push
+image_pull_secrets:
+- dockerconfigjson
