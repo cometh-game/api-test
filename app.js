@@ -9,19 +9,19 @@ app.use(bodyParser.json());
 
 // Récupérer la liste des utilisateurs
 app.get('/api/users', (req, res) => {
-  const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+  const data = JSON.parse(fs.readFileSync('db.json', 'utf8'));
   res.json(data.users);
 });
 
 // Récupérer la liste des livres
 app.get('/api/books', (req, res) => {
-  const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+  const data = JSON.parse(fs.readFileSync('db.json', 'utf8'));
   res.json(data.books);
 });
 
 // Ajouter un utilisateur
 app.post('/api/users', (req, res) => {
-  const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+  const data = JSON.parse(fs.readFileSync('db.json', 'utf8'));
   const newUser = req.body;
   newUser.id = data.users.length + 1;
   data.users.push(newUser);
@@ -31,7 +31,7 @@ app.post('/api/users', (req, res) => {
 
 // Ajouter un livre
 app.post('/api/books', (req, res) => {
-  const data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+  const data = JSON.parse(fs.readFileSync('db.json', 'utf8'));
   const newBook = req.body;
   newBook.id = data.books.length + 1;
   data.books.push(newBook);
